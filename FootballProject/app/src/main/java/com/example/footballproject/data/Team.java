@@ -1,4 +1,4 @@
-package com.example.footballproject;
+package com.example.footballproject.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

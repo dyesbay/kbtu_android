@@ -1,4 +1,4 @@
-package com.example.footballproject;
+package com.example.footballproject.list;
 
 import android.content.Context;
 import android.view.GestureDetector;

@@ -11,9 +11,11 @@ public interface Binder {
 
     interface Presenter {
         void onCreate();
+        void callViewOnTeamsLoaded(List <Team> teams);
+        void onListItemClicked(ListFragment.OnFragmentInteractionListener listener, int position);
     }
 
     interface Model {
-        List<Team>  createTeams();
+        void loadTeams(int leagueID);
     }
 }

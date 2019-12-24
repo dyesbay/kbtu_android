@@ -11,9 +11,10 @@ public interface Binder {
 
     interface Presenter {
         void onCreate(int id);
+        void onTeamLoaded(Team team);
     }
 
     interface Model {
-        Team getTeam(int id);
+        void getTeam(int id);
     }
 }

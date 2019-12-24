@@ -2,7 +2,6 @@ package com.example.footballproject.details;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,8 +23,7 @@ import lombok.NoArgsConstructor;
 public class Details extends Fragment implements Binder.View {
     private static final String TEAMID = "teamid";
     private int teamId;
-    private DetailsPresenter presenter;
-    private OnFragmentInteractionListener mListener;
+    private DetailsViewModel presenter;
     private TextView title, descriptionView, stadiumView, nickView, fView;
     private ImageView teamPosterView;
     public static Details newInstance(int position) {
@@ -41,7 +39,7 @@ public class Details extends Fragment implements Binder.View {
         if (getArguments() != null) {
             teamId = getArguments().getInt(TEAMID);
         }
-        presenter = new DetailsPresenter(this);
+        presenter = new DetailsViewModel(this);
     }
 
     @Override
@@ -54,56 +52,37 @@ public class Details extends Fragment implements Binder.View {
         stadiumView = view.findViewById(R.id.team_stadium);
         nickView = view.findViewById(R.id.team_nickname);
         fView = view.findViewById(R.id.team_founded);
-//        configureShareButton(view);
+        presenter.onCreate(teamId);
+        configureShareButton(view);
 
         return view;
     }
 
     public void setTeam (Team team){
         title.setText(team.getTitle());
-        descriptionView.setText(team.getHistory());
+//        descriptionView.setText(team.getHistory());
         stadiumView.setText(team.getStadium());
-        nickView.setText(team.getNickname());
+//        nickView.setText(team.getNickname());
         fView.setText(team.getFounded());
         getActivity().setTitle(team.getTitle());
-        Glide.with(getContext()).load(team.getLogo()).into(teamPosterView);
+        Glide.with(getContext()).load(team.getLogoURL()).into(teamPosterView);
 
     }
-//    private void configureShareButton (View view){
-//        FloatingActionButton shareButton = view.findViewById(R.id.fab);
-//        shareButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent sendIntent = new Intent();
-//                sendIntent.setAction(Intent.ACTION_SEND);
-//                Team team = presenter.getTeam();
-//                String movieText = team.getTitle() + "\n" + team.getNickname() + "\n" + team.getFounded() + "\n" + team.getStadium() + "\n" + team.getHistory();
-//                sendIntent.putExtra(Intent.EXTRA_TEXT, movieText);
-//                sendIntent.setType("text/plain");
-//
-//                Intent shareIntent = Intent.createChooser(sendIntent, null);
-//                startActivity(shareIntent);
-//            }
-//        });
-//    }
+    private void configureShareButton (View view){
+        FloatingActionButton shareButton = view.findViewById(R.id.fab);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                Team team = presenter.getTeam();
+                String movieText = team.getTitle() + "\n" + team.getFounded() + "\n" + team.getStadium() + "\n" + team.getCity();
+                sendIntent.putExtra(Intent.EXTRA_TEXT, movieText);
+                sendIntent.setType("text/plain");
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+            }
+        });
     }
 }

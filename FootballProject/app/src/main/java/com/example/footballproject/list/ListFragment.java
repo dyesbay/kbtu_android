@@ -26,12 +26,14 @@ public class ListFragment extends Fragment implements Binder.View{
     private TeamAdapter mAdapter;
 
     public ListFragment() {
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = new ListPresenter(this);
+        mListener = (OnFragmentInteractionListener) getContext();
     }
 
     @Override
@@ -45,8 +47,9 @@ public class ListFragment extends Fragment implements Binder.View{
     }
 
     @Override
-    public void setTeams(List<Team> team){
-        mAdapter = new TeamAdapter(getContext(), team);
+    public void setTeams(List<Team> teams){
+        mAdapter = new TeamAdapter(getContext(), teams);
+        recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
 
@@ -57,11 +60,11 @@ public class ListFragment extends Fragment implements Binder.View{
         presenter.onCreate();
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                mListener.onTeamClicked(position);
+                presenter.onListItemClicked(mListener,position);
             }
             @Override
             public void onLongClick(View view, int position) {}
@@ -69,6 +72,6 @@ public class ListFragment extends Fragment implements Binder.View{
     }
 
     public interface OnFragmentInteractionListener {
-        void onTeamClicked(int position);
+        void onTeamClicked(int TeamID);
     }
 }

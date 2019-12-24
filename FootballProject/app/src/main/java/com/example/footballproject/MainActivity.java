@@ -6,7 +6,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.footballproject.data.Team;
 import com.example.footballproject.data.TeamAdapter;
 import com.example.footballproject.details.Details;
+import com.example.footballproject.list.ListFragment;
 
 import java.util.ArrayList;
 import java.util.List;

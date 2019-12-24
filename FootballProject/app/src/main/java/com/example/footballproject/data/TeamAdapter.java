@@ -58,12 +58,12 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Team team = teamsList.get(position);
-        String nickText = "Прозвище: " + team.getNickname();
+        String nickText = "Город " + team.getCity();
         String foundedText = "Основан: " + team.getFounded();
         holder.title.setText(team.getTitle());
         holder.nickname.setText(nickText);
         holder.founded.setText(foundedText);
-        Glide.with(mContext).load(team.logo).into(holder.logo);
+        Glide.with(mContext).load(team.getLogoURL()).into(holder.logo);
     }
 
     @Override

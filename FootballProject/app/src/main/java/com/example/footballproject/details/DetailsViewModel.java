@@ -6,22 +6,26 @@ import java.util.List;
 
 import lombok.Getter;
 
-public class DetailsPresenter implements Binder.Presenter {
+public class DetailsViewModel implements Binder.Presenter {
     private Binder.View view;
     private Binder.Model model;
     @Getter
     private Team team;
 
-    public DetailsPresenter(Binder.View mView) {
+    public DetailsViewModel(Binder.View mView) {
         this.view = mView;
-        this.model = new DetailsModel();
+        this.model = new DetailsModel(this);
     }
 
     @Override
     public void onCreate (int id){
-        team = model.getTeam(id);
-        view.setTeam(team);
+        model.getTeam(id);
+
     }
 
-
+    @Override
+    public void onTeamLoaded(Team team) {
+        team=team;
+        view.setTeam(team);
+    }
 }

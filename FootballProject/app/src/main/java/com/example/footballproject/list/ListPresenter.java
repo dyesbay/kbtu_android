@@ -11,14 +11,23 @@ public class ListPresenter implements Binder.Presenter {
     private List<Team> teams;
     public ListPresenter(Binder.View mView) {
         this.view = mView;
-        this.model = new ListModel();
+        this.model = new ListModel(this);
     }
 
     @Override
     public void onCreate (){
-        teams = model.createTeams();
-        view.setTeams(teams);
+        model.loadTeams(3);
     }
 
+    @Override
+    public void callViewOnTeamsLoaded (List<Team> teams){
+        view.setTeams(teams);
+        this.teams=teams;
+    }
 
+    @Override
+    public void onListItemClicked(ListFragment.OnFragmentInteractionListener listener, int position) {
+        Team team = teams.get(position);
+        listener.onTeamClicked(team.getId());
+    }
 }

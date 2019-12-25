@@ -46,6 +46,7 @@ public class ListFragment extends Fragment implements Binder.View{
         return view;
     }
 
+
     @Override
     public void setTeams(List<Team> teams){
         mAdapter = new TeamAdapter(getContext(), teams);

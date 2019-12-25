@@ -17,8 +17,8 @@ public class Team {
     private int id;
     @JsonProperty("name")
     private String title;
-    @JsonIgnore
-    private String nickname;
+    @JsonProperty("venue_capacity")
+    private int capacity;
     @JsonProperty("venue_name")
     private String stadium;
     @JsonProperty("founded")

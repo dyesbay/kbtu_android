@@ -43,5 +43,6 @@ public class DetailsModel implements Binder.Model {
                         System.out.println("Loading team list failed");
                     }
                 });
+
     }
 }

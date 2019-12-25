@@ -27,5 +27,6 @@ public class DetailsViewModel implements Binder.Presenter {
     public void onTeamLoaded(Team team) {
         team=team;
         view.setTeam(team);
+
     }
 }

@@ -14,4 +14,5 @@ public interface ApiEndpoints{
     @Headers({"x-rapidapi-host:api-football-v1.p.rapidapi.com", "x-rapidapi-key:6ccaa461e6mshe2a26e8f1ef35aep15eefcjsnad19b41b5b5c"})
     @GET("/v2/teams/league/{league_id}")
     Call<LeagueApiResponse> getTeamsByLeagueID(@Path("league_id") int id);
+
 }

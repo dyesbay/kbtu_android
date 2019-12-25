@@ -17,4 +17,5 @@ public interface Binder {
     interface Model {
         void getTeam(int id);
     }
+
 }

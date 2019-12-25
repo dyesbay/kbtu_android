@@ -16,7 +16,7 @@ public class ListPresenter implements Binder.Presenter {
 
     @Override
     public void onCreate (){
-        model.loadTeams(3);
+        model.loadTeams(2);
     }
 
     @Override
@@ -24,6 +24,7 @@ public class ListPresenter implements Binder.Presenter {
         view.setTeams(teams);
         this.teams=teams;
     }
+
 
     @Override
     public void onListItemClicked(ListFragment.OnFragmentInteractionListener listener, int position) {

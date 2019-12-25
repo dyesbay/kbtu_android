@@ -17,6 +17,7 @@ public class LeagueApiResponse {
     @JsonProperty("api")
     private Result result;
 
+
 }
 
 

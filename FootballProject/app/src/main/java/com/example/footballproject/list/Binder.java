@@ -18,4 +18,5 @@ public interface Binder {
     interface Model {
         void loadTeams(int leagueID);
     }
+
 }

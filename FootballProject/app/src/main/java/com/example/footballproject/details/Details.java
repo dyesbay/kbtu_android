@@ -60,11 +60,11 @@ public class Details extends Fragment implements Binder.View {
 
     public void setTeam (Team team){
         title.setText(team.getTitle());
-//        descriptionView.setText(team.getHistory());
+//        descriptionView.setText(team.getCapacity());
         stadiumView.setText(team.getStadium());
-//        nickView.setText(team.getNickname());
+        nickView.setText(team.getCity());
         fView.setText(team.getFounded());
-        getActivity().setTitle(team.getTitle());
+//        getActivity().setTitle(team.getTitle());
         Glide.with(getContext()).load(team.getLogoURL()).into(teamPosterView);
 
     }

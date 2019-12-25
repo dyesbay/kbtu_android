@@ -25,70 +25,95 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:text="Название" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:orientation="vertical">
+            <TextView
+                android:id="@+id/team_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/team_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:textColor="#000000"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Основан" />
 
-                    <TextView
-                        android:id="@+id/team_founded"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="2dp"
-                        android:textColor="#252424" />
+            <TextView
+                android:id="@+id/team_founded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:textColor="#252424"
+                android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/team_nickname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="2dp"
-                        android:textColor="#252424" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Город" />
 
-                    <TextView
-                        android:id="@+id/team_stadium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="2dp"
-                        android:textColor="#252424" />
-                </LinearLayout>
+            <TextView
+                android:id="@+id/team_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:textColor="#252424"
+                android:textSize="18sp" />
 
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:scaleType="fitXY" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Стадион" />
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/team_stadium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:textColor="#252424"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:gravity="center"
                 android:textColor="#3A3636" />
 
         </LinearLayout>

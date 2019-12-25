@@ -15,4 +15,5 @@ import lombok.Setter;
 public class Result {
     @JsonProperty("teams")
     List<Team> teams;
+
 }

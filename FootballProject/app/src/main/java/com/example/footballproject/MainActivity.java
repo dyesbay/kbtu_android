@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements com.example.footb
         ft.commit();
     }
 
+
     @Override
     public void onTeamClicked (int id){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

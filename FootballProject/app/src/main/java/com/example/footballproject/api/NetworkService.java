@@ -22,6 +22,7 @@ public class NetworkService {
         return mInstance;
     }
 
+
     public ApiEndpoints getApi (){
         return mRetrofit.create(ApiEndpoints.class);
     }

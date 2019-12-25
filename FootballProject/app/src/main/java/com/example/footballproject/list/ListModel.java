@@ -44,6 +44,7 @@ public class ListModel implements Binder.Model {
 
                     @Override
                     public void onFailure(@NonNull Call<LeagueApiResponse> call, @NonNull Throwable t) {
+                        t.printStackTrace();
                         System.out.println("Loading team list failed");
                     }
                 });
